@@ -11,7 +11,6 @@ signal = [0.2 + 0.5 * sin(t) + 0.2 * cos(10*t) + 0.2 * sin(4*t) for t in time]
 cycles = rainflow.count_cycles(signal)
 print(cycles)
 
-#test to see changes across git
 
 plt.figure(figsize=(10, 4))
 plt.plot(time, signal)
