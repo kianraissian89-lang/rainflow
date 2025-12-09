@@ -17,6 +17,11 @@ reversal_points = list(reversals(signal))
 reversal_with_time = [(float(time[index]), float(magnitude)) for index, magnitude in reversal_points]
 print(reversal_with_time)
 
+for rng, mean, count, i_start, i_end in rainflow.extract_cycles(signal): 
+    time_start= float(time[i_start])
+    time_end= float(time[i_end])
+    print(rng, mean, count, time_start, time_end)
+
 
 plt.figure(figsize=(10, 4))
 plt.plot(time, signal)
