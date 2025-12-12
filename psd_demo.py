@@ -11,7 +11,6 @@ of how this can be accomplished and visualized with Matplotlib.
 """
 import matplotlib.pyplot as plt
 import numpy as np
-
 import matplotlib.mlab as mlab
 
 # Fixing random state for reproducibility
