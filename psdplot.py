@@ -7,16 +7,15 @@ from scipy.signal import welch
 
 
 # Load CSV data
-acceldata = pd.read_csv('accelzdata.csv')
+acceldata = pd.read_csv('RAWDATA - Waveform.csv', usecols=['FrontAxle_Left Front (Max) (G)'])
 data = acceldata.values.flatten()  # Convert to 1D array
+nfreq = 101 # number of frequency points
+sample_rate = 2000  # samples per second (adjust as needed)
 
-# Define your custom time series
-sample_rate = 1000  # samples per second (adjust as needed)
+(f, S)= scipy.signal.welch(data, sample_rate, nperseg=len(data)/nfreq)
 
-(f, S)= scipy.signal.welch(data, sample_rate, nperseg=4096)
-
-plt.semilogy(f, S)
-plt.xlim([0, 100])
+plt.loglog(f, S)
+plt.xlim([0, 1000])
 plt.xlabel('frequency [Hz]')
 plt.ylabel('PSD [G^2/Hz]')
 plt.show()
